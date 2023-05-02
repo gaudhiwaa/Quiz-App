@@ -1,13 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+
 import Login from './components/Login';
+import { Box } from '@mui/material';
 
 
 function App() {
   return (
-    <div>
-    <Login></Login>
-    </div>
+    <Box >
+      <Login/>
+    </Box>
   );
 }
 
