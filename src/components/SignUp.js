@@ -9,7 +9,7 @@ function signInWithGoogle() {
   return firebase.auth().signInWithPopup(provider);
 }
 
-const Login = () => {
+const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [windowSize, setWindowSize] = useState({
@@ -42,26 +42,11 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        alert(user);
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorCode, errorMessage);
-        alert("Wrong Email/Password");
-      });
+   
   };
 
-  function handleSignUpClick() {
-    navigate('/signup');
+  function handleLoginClick() {
+    navigate('/');
   }
 
   return (
@@ -122,6 +107,7 @@ const Login = () => {
               QuizUp
             </Typography>
           </Box>
+
           <Typography
             sx={{
               marginTop: windowSize.width > 700 ? "56px" : "10px",
@@ -132,7 +118,7 @@ const Login = () => {
             Interactive Quiz for Learning
           </Typography>
           <Typography sx={{ mt: "10px", fontSize: "16px", mb: "20px" }}>
-            Welcome Back, Please login to your account
+            Please fill information below
           </Typography>
 
           <Box>
@@ -141,11 +127,24 @@ const Login = () => {
             </Typography>
             <TextField
               id="outlined-basic"
+              label="Name"
+              variant="outlined"
+              size="small"
+              sx={{ width: "100%" }}
+              // value={username}
+              onChange={handleEmailChange}
+            />
+            <br />
+            <Typography sx={{ mt: "18px", mb: "5px" }}>
+              {/* <b>Email:</b> */}
+            </Typography>
+            <TextField
+              id="outlined-basic"
               label="Email"
               variant="outlined"
               size="small"
               sx={{ width: "100%" }}
-              value={email}
+              // value={username}
               onChange={handleEmailChange}
             />
             <br />
@@ -175,33 +174,32 @@ const Login = () => {
               }}
             >
               <Button
-                onClick={handleSubmit}
                 disableElevation
-                variant="contained"
+                variant="outlined"
                 sx={{
                   textTransform: "none",
-                  background:
-                    "linear-gradient(122.76deg, #3550DC -35.72%, #27E9F7 172.73%)",
                   width: "47%",
                   height: "40px",
                   borderRadius: "5px",
                 }}
+                onClick={handleLoginClick}
               >
                 Login
               </Button>
               <Button
                 disableElevation
-                variant="outlined"
+                variant="contained"
                 sx={{
                   textTransform: "none",
                   borderRadius: "5px",
                   ml: "24px",
                   width: "47%",
                   height: "40px",
+                  background: "linear-gradient(122.76deg, #3550DC -35.72%, #27E9F7 172.73%)"
                 }}
-                onClick={handleSignUpClick}
+                onClick={handleSubmit}
               >
-                Sign Up
+                Next
               </Button>
             </Box>
             <Box
@@ -235,4 +233,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
