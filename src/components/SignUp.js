@@ -3,6 +3,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { getDatabase, ref, set } from "firebase/database";
 
 function signInWithGoogle() {
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -10,13 +11,16 @@ function signInWithGoogle() {
 }
 
 const SignUp = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [userInfo, setUserInfo] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+  });
   const [windowSize, setWindowSize] = useState({
     width: undefined,
     height: undefined,
   });
-  const navigate = useNavigate();
 
   useEffect(() => {
     function handleResize() {
@@ -33,20 +37,31 @@ const SignUp = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    try {
+      const { user } = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+        .then((userCredential) => {
+          const db = getDatabase();
+          const userId = userCredential.user.uid;
+          const reference = ref(db, "users/" + userId);
 
-  const handleSubmit = (e) => {
-   
+          set(reference, {
+            fullName: userInfo.fullName,
+            email: userInfo.email,
+          });
+        });
+    } catch (error) {
+      console.log(error);
+      alert("woy");
+    }
   };
 
   function handleLoginClick() {
-    navigate('/');
+    navigate("/");
   }
 
   return (
@@ -122,9 +137,7 @@ const SignUp = () => {
           </Typography>
 
           <Box>
-            <Typography sx={{ mb: "5px" }}>
-              {/* <b>Email:</b> */}
-            </Typography>
+            <Typography sx={{ mb: "5px" }}>{/* <b>Email:</b> */}</Typography>
             <TextField
               id="outlined-basic"
               label="Name"
@@ -132,7 +145,10 @@ const SignUp = () => {
               size="small"
               sx={{ width: "100%" }}
               // value={username}
-              onChange={handleEmailChange}
+              value={userInfo.fullName}
+              onChange={(event) =>
+                setUserInfo({ ...userInfo, fullName: event.target.value })
+              }
             />
             <br />
             <Typography sx={{ mt: "18px", mb: "5px" }}>
@@ -144,8 +160,10 @@ const SignUp = () => {
               variant="outlined"
               size="small"
               sx={{ width: "100%" }}
-              // value={username}
-              onChange={handleEmailChange}
+              value={userInfo.email}
+              onChange={(event) =>
+                setUserInfo({ ...userInfo, email: event.target.value })
+              }
             />
             <br />
 
@@ -153,14 +171,16 @@ const SignUp = () => {
               {/* <b>Password:</b> */}
             </Typography>
             <TextField
-              value={password}
-              onChange={handlePasswordChange}
               id="outlined-basic"
               label="Password"
               variant="outlined"
               type="password"
               size="small"
               sx={{ width: "100%" }}
+              value={userInfo.password}
+              onChange={(event) =>
+                setUserInfo({ ...userInfo, password: event.target.value })
+              }
             />
 
             <br />
@@ -195,7 +215,8 @@ const SignUp = () => {
                   ml: "24px",
                   width: "47%",
                   height: "40px",
-                  background: "linear-gradient(122.76deg, #3550DC -35.72%, #27E9F7 172.73%)"
+                  background:
+                    "linear-gradient(122.76deg, #3550DC -35.72%, #27E9F7 172.73%)",
                 }}
                 onClick={handleSubmit}
               >
@@ -204,8 +225,7 @@ const SignUp = () => {
             </Box>
             <Box
               sx={{
-                background:
-                  "#60a4e4",
+                background: "#60a4e4",
                 height: "1px",
                 mt: "20px",
                 mb: "20px",

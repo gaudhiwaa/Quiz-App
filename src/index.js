@@ -9,6 +9,7 @@ import 'firebase/compat/auth';
 firebase.initializeApp({
   apiKey: "AIzaSyCAzY7F5iMQPZLQa9Cbo6LyVSkFXPsKzsI",
   authDomain: "challenge-31010.firebaseapp.com",
+  databaseURL: "https://challenge-31010-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "challenge-31010",
   storageBucket: "challenge-31010.appspot.com",
   messagingSenderId: "350911309103",
