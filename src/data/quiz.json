@@ -1,0 +1,175 @@
+{
+  "animals": [
+    {
+      "id": 1,
+      "name": "Animal 1",
+      "difficulty": "easy",
+      "photo": "https://images.macmillan.com/folio-assets/interiors-images/9780753465653.IN01.jpg",
+      "categoryId": 27
+    },
+    {
+      "id": 2,
+      "name": "Animal 2",
+      "difficulty": "medium",
+      "photo": "https://i.pinimg.com/736x/a6/48/56/a648567ccbeadfb7adfeda7942ba5c01.jpg",
+      "categoryId": 27
+    },
+    {
+      "id": 3,
+      "name": "Animal 3",
+      "difficulty": "hard",
+      "photo": "https://i.pinimg.com/736x/01/6f/72/016f72c5812e1b8f71bdbf19d8c7558b.jpg",
+      "categoryId": 27
+    },
+    {
+      "id": 4,
+      "name": "Animal 4",
+      "difficulty": "hard",
+      "photo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwufnEQbYWamRZKdgqfshB9TxhhRW1qYQo_A&usqp=CAU",
+      "categoryId": 27
+    },
+    {
+      "id": 5,
+      "name": "Animal 5",
+      "difficulty": "hard",
+      "photo": "https://media.istockphoto.com/id/965307846/id/foto/bayi-koala-di-pohon.jpg?s=612x612&w=0&k=20&c=f0yHRxnHPSpH6cXhV38JkoHk_U0pzhAAaV0zjyHCRs4=",
+      "categoryId": 27
+    }
+  ],
+  "board games": [
+    {
+      "id": 1,
+      "name": "Board games 1",
+      "difficulty": "medium",
+      "photo": "https://kwikku.us/uploads/public/images/article/content/2-2021082523430430430682872.jpg",
+      "categoryId": 16
+    },
+    {
+      "id": 2,
+      "name": "Board games 2",
+      "difficulty": "hard",
+      "photo": "https://m.media-amazon.com/images/I/916SRDclINL._AC_SX466_.jpg",
+      "categoryId": 16
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "name": "Books 1",
+      "difficulty": "medium",
+      "photo": "https://images-na.ssl-images-amazon.com/images/I/81eB+7+CkUL.jpg",
+      "categoryId": 10
+    },
+    {
+      "id": 2,
+      "name": "Books 2",
+      "difficulty": "hard",
+      "photo": "https://images-na.ssl-images-amazon.com/images/I/91uwocAMtSL.jpg",
+      "categoryId": 10
+    }
+  ],
+  "computers": [
+    {
+      "id": 1,
+      "name": "Computers 1",
+      "difficulty": "medium",
+      "photo": "https://i.pinimg.com/originals/39/53/e4/3953e4678591cbd218bf3fc2c73b227f.jpg",
+      "categoryId": 18
+    },
+    {
+      "id": 2,
+      "name": "Computers 2",
+      "difficulty": "hard",
+      "photo": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6479/6479175_sd.jpg;maxHeight=262;maxWidth=386",
+      "categoryId": 18
+    }
+  ],
+  "film": [
+    {
+      "id": 1,
+      "name": "Film 1",
+      "difficulty": "medium",
+      "photo": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-movie-poster-template-design-0f5fff6262fdefb855e3a9a3f0fdd361_screen.jpg?ts=1636996054",
+      "categoryId": 11
+    },
+    {
+      "id": 2,
+      "name": "Film 2",
+      "difficulty": "hard",
+      "photo": "https://marketplace.canva.com/EAFKCougWxw/2/0/1131w/canva-minimalist-documenter-never-be-alone-movie-poster-TrbqaWjvEpM.jpg",
+      "categoryId": 11
+    }
+  ],
+  "geography": [
+    {
+      "id": 1,
+      "name": "Geography 1",
+      "difficulty": "hard",
+      "photo": "https://t3.ftcdn.net/jpg/00/91/06/78/360_F_91067825_iOuKJaJcihUDMsrWa3nBrauxzCmjbyq9.jpg",
+      "categoryId": 22
+    }
+  ],
+  "games": [
+    {
+      "id": 1,
+      "name": "Games 1",
+      "difficulty": "hard",
+      "photo": "https://assets.hongkiat.com/uploads/ps3-game-covers/Aliens-vs-Predator.jpg",
+      "categoryId": 15
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "name": "History 1",
+      "difficulty": "medium",
+      "photo": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1347785356i/4496786.jpg",
+      "categoryId": 23
+    }
+  ],
+  "mathematics": [
+    {
+      "id": 1,
+      "name": "Mathematics 1",
+      "difficulty": "easy",
+      "photo": "https://img.freepik.com/premium-vector/doodle-maths-geometry-concept-trigonometry-functions-charts-mathematical-formulas-vector-school-education-background_53562-9069.jpg",
+      "categoryId": 19
+    }
+  ],
+  "music": [
+    {
+      "id": 1,
+      "name": "Music 1",
+      "difficulty": "medium",
+      "photo": "https://play-lh.googleusercontent.com/-Ynyw5dSb0wlY-LWeHrkC-CDxf0Mryl1i6oYGO7WaJDyTvHndUgj0Juvg_xLW1iaq8Q",
+      "categoryId": 12
+    }
+  ],
+  "politics": [
+    {
+      "id": 1,
+      "name": "Politics 1",
+      "difficulty": "medium",
+      "photo": "https://www.cbs42.com/wp-content/uploads/sites/81/2019/06/AP191585136691445B15D_1559937340568_91212772_ver1.0-2.jpg?w=1280",
+      "categoryId": 24
+    }
+  ],
+  "television": [
+    {
+      "id": 1,
+      "name": "Television 1",
+      "difficulty": "medium",
+      "photo": "https://pbs.twimg.com/media/FSCKQ1qVkAAY6iV.jpg",
+      "categoryId": 14
+    }
+  ],
+  "vehicles": [
+    {
+      "id": 1,
+      "name": "Vehicles 1",
+      "difficulty": "easy",
+      "photo": "https://asset.kompas.com/crops/QyYMhlfg2jOp_Q7Hs7r9elfKVPs=/52x96:1217x873/750x500/data/photo/2021/04/19/607d17d5a3689.jpeg",
+      "categoryId": 28
+    }
+  ]
+}

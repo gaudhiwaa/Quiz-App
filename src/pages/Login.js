@@ -58,7 +58,8 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
-        alert(user);
+        // alert("YAk bener");
+        navigate("/")
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -74,11 +75,15 @@ const Login = () => {
     try {
       const { user } = await firebase
         .auth()
-        .createUserWithEmailAndPassword(userInfo.email, userInfo.password)
+        .createUserWithEmailAndPassword(userInfo.email, userInfo.password,)
         .then((userCredential) => {
           const db = getDatabase();
           const userId = userCredential.user.uid;
           const reference = ref(db, "users/" + userId);
+
+          userCredential.user.updateProfile({
+            displayName: userInfo.fullName
+          })
 
           set(reference, {
             fullName: userInfo.fullName,
@@ -87,14 +92,12 @@ const Login = () => {
         });
     } catch (error) {
       console.log(error);
-      alert("woy");
     }
   };
 
   function handleSignUpClick() {
     if(register) setRegister(false) 
     else setRegister(true)
-
   }
 
   return (
@@ -143,7 +146,7 @@ const Login = () => {
               width: windowSize.width > 700 ? "35%" : "100%",
             }}
           >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ display: "flex", alignItems: "center",}}>
               <img src="/image/Logo.png" width="42px" heigth="42px" />
               <Typography
                 sx={{
@@ -252,7 +255,7 @@ const Login = () => {
                     background:
                       "linear-gradient(122.76deg, #3550DC -35.72%, #27E9F7 172.73%)",
                   }}
-                  onClick={handleLogin}
+                  onClick={handleRegister}
                 >
                   Next
                 </Button>
@@ -355,7 +358,7 @@ const Login = () => {
                 }}
               >
                 <Button
-                  onClick={handleRegister}
+                  onClick={handleLogin}
                   disableElevation
                   variant="contained"
                   sx={{
